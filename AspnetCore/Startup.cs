@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Business.Implementation;
+using Business.Infrastructure;
+using DataAccess.EntityModels;
+using DataAccess.RepositoryBase;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,12 +32,15 @@ namespace AspnetCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            //services.AddDbContext<NorthwindTraderDbContext>(options =>
-            //{
-            //    options.UseSqlServer(Configuration.GetConnectionString("NorthwindTraderDatabase"));
-            //});
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddDbContext<NorthwindTraderDbContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("NorthwindTraderDatabase"));
+            });
 
+          // services.AddTransient<IRepositoryBase<Products>, RepositoryBase<Products>>();
+
+            services.AddTransient<IproductBusiness, ProductBusiness>();
             services.AddSwaggerGen(c => {
                 c.SwaggerDoc("v1", new Info
                 {
