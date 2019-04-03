@@ -5,11 +5,13 @@ VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiServices", "AspnetCore\ApiServices.csproj", "{95D0DCF4-A82D-4FDE-92E5-F6068349F643}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{D84CC69E-8FA0-4400-888F-9314CFEA6D34}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{D84CC69E-8FA0-4400-888F-9314CFEA6D34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{3EF22E18-1952-48CA-92FB-772B12800FDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Business.csproj", "{3EF22E18-1952-48CA-92FB-772B12800FDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataModels", "DataModels\DataModels.csproj", "{F4289F67-89AE-4439-979F-688044430D6C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataModels", "DataModels\DataModels.csproj", "{F4289F67-89AE-4439-979F-688044430D6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework", "Framework\Framework.csproj", "{2721FC19-B5FD-4AC4-8A57-FE2D0C4C3FFF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{F4289F67-89AE-4439-979F-688044430D6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4289F67-89AE-4439-979F-688044430D6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4289F67-89AE-4439-979F-688044430D6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2721FC19-B5FD-4AC4-8A57-FE2D0C4C3FFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2721FC19-B5FD-4AC4-8A57-FE2D0C4C3FFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2721FC19-B5FD-4AC4-8A57-FE2D0C4C3FFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2721FC19-B5FD-4AC4-8A57-FE2D0C4C3FFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

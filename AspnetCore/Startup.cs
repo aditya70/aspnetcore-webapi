@@ -38,7 +38,9 @@ namespace AspnetCore
                 options.UseSqlServer(Configuration.GetConnectionString("NorthwindTraderDatabase"));
             });
 
-          // services.AddTransient<IRepositoryBase<Products>, RepositoryBase<Products>>();
+            // services.AddTransient<IRepositoryBase<Products>, RepositoryBase<Products>>();
+
+         
 
             services.AddTransient<IproductBusiness, ProductBusiness>();
             services.AddSwaggerGen(c => {
