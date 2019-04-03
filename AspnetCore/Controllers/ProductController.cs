@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using Business.Infrastructure;
@@ -15,20 +17,90 @@ namespace ApiServices.Controllers
     {
         private IproductBusiness _productBusiness { get; set; }
 
-        public ProductController(IproductBusiness productBusiness)
+        public ProductController()
         {
-            this._productBusiness = productBusiness;
+
         }
+
+        //public ProductController(IproductBusiness productBusiness)
+        //{
+        //    this._productBusiness = productBusiness;
+        //}
+
+        //[HttpGet]
+        //[Route("getallproducts")]
+        //public async Task<IActionResult> GetAllProductsAsync()
+        //{
+        //    var result = await _productBusiness.GetAllProduct();
+
+        //    if (!result.Any()) return NotFound();
+
+        //    return Ok(result);
+        //}
+        [HttpGet]
+        [Route("getemployeebyid")]
+        public Employee Get(int id)
+        {
+          
+            SqlDataReader reader = null;
+            SqlConnection myConnection = new SqlConnection();
+            myConnection.ConnectionString = @"Server=DESKTOP-PTAUQID;Database=NorthwindTraders;User ID=sa;Password=shezar@123;";
+
+            SqlCommand sqlCmd = new SqlCommand();
+            sqlCmd.CommandType = CommandType.Text;
+            sqlCmd.CommandText = "Select * from Employees where EmployeeId=" + id + "";
+            sqlCmd.Connection = myConnection;
+            myConnection.Open();
+            reader = sqlCmd.ExecuteReader();
+            Employee emp = null;
+            while (reader.Read())
+            {
+                emp = new Employee();
+                emp.EmployeeId = Convert.ToInt32(reader.GetValue(0));
+                emp.Name = reader.GetValue(2).ToString();
+                emp.Title = reader.GetValue(3).ToString();
+            }
+
+            myConnection.Close();
+            return emp;
+
+        }
+
 
         [HttpGet]
-        [Route("getallproducts")]
-        public async Task<IActionResult> GetAllProductsAsync()
+        [Route("getallemployee")]
+        public List<Employee> GetAllEmployee()
         {
-            var result = await _productBusiness.GetAllProduct();
+            List<Employee> employees = new List<Employee>();
+            SqlDataReader reader = null;
+            SqlConnection myConnection = new SqlConnection();
+            myConnection.ConnectionString = @"Server=DESKTOP-PTAUQID;Database=NorthwindTraders;User ID=sa;Password=shezar@123;";
 
-            if (!result.Any()) return NotFound();
+            SqlCommand sqlCmd = new SqlCommand();
+            sqlCmd.CommandType = CommandType.Text;
+            sqlCmd.CommandText = "Select top(10) * from Employees";
+            sqlCmd.Connection = myConnection;
+            myConnection.Open();
+            reader = sqlCmd.ExecuteReader();
 
-            return Ok(result);
+            if (reader.HasRows)
+            {
+                Employee emp = null;
+
+                while (reader.Read())
+                {
+                    emp = new Employee();
+                    emp.EmployeeId = Convert.ToInt32(reader.GetValue(0));
+                    emp.Name = reader.GetValue(2).ToString();
+                    emp.Title = reader.GetValue(3).ToString();
+                    employees.Add(emp);
+                }
+            }
+
+            myConnection.Close();
+
+            return employees;
         }
     }
+
 }
