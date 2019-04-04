@@ -6,21 +6,42 @@ using System.Linq;
 using System.Threading.Tasks;
 using Business.Infrastructure;
 using DataModels.DomainModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace ApiServices.Controllers
 {
+    [Authorize(AuthenticationSchemes ="Bearer")]
     [Route("api/[controller]")]
     [ApiController]
     public class ProductController : ControllerBase
     {
         private IproductBusiness _productBusiness { get; set; }
+        private ILogger _logger;
 
         public ProductController()
         {
-
+            
         }
+
+
+        //public ProductController(ILogger<ProductController> logger)
+        //{
+        //    _logger = logger;
+        //}
+
+        //[HttpGet]
+        //[Route("log")]
+        //[AllowAnonymous]
+        //public IActionResult Index()
+        //{
+        //    _logger.LogInformation("Executing Home/Index");
+
+        //    return Ok(new { message = "log executed" });
+        //}
+
 
         //public ProductController(IproductBusiness productBusiness)
         //{

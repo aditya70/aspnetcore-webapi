@@ -21,7 +21,10 @@ namespace Framework.Services
     {
         private List<User> _users = new List<User>
         {
-            new User { Id = 1, FirstName = "Test", LastName = "User", Username = "test", Password = "test" }
+            new User { Id = 1, FirstName = "Test", LastName = "User", Username = "test", Password = "test" },
+            new User { Id = 2, FirstName = "Aditya", LastName = "Singh", Username = "aditya", Password = "aditya" },
+            new User { Id = 3, FirstName = "Aditya1", LastName = "Singh1", Username = "aditya1", Password = "aditya1" },
+            new User { Id = 4, FirstName = "Aditya2", LastName = "Singh2", Username = "aditya2", Password = "aditya2" },
         };
 
         private readonly AppSettings _appSettings;
