@@ -97,9 +97,9 @@ namespace AspnetCore
             //  var logger = loggerFactory.CreateLogger<ConsoleLogger>();
             //  logger.LogInformation("executing configure log");
 
-            GlobalDiagnosticsContext.Set("configDir", "C:\\git\\damienbod\\AspNetCoreNlog\\Logs");
+            //GlobalDiagnosticsContext.Set("configDir", "C:\\git\\damienbod\\AspNetCoreNlog\\Logs");
 
-            loggerFactory.AddNLog();
+            //loggerFactory.AddNLog();
 
             if (env.IsDevelopment())
             {
